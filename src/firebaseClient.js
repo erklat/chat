@@ -5,6 +5,9 @@ import "firebase/analytics";
 
 import { useAuthState } from "react-firebase-hooks/auth";
 
+/*
+* konfiguracija za firebase, ovaj objekt se dobije u firebase dashboardu
+*/
 firebase.initializeApp({
   apiKey: "AIzaSyAJaW4dKOvSjdh6EEbWJwhME0Popf5lfQM",
   authDomain: "mario-algebra-seminar-chat.firebaseapp.com",
@@ -15,6 +18,10 @@ firebase.initializeApp({
   measurementId: "G-8MC1JL24L1",
 });
 
+/*
+* inicijalizacija firebasea, ove metode proučiti iz
+* dokumentacije firebasea
+*/
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
@@ -24,6 +31,9 @@ export const signInWithGoogle = () => {
 };
 
 export const GoogleUser = () => {
+  /*
+  * destrukturiranje arraya, [user] znači jednako useAuthState(auth)[0];
+  */
   const [user] = useAuthState(auth);
   return user;
 };
